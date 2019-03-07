@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  go:
+    image: golang:latest
+    volumes:
+      - .:/lets-go
+    working_dir: /lets-go
+
