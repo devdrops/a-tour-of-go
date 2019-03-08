@@ -5,10 +5,14 @@ package main
 import "golang.org/x/tour/pic"
 
 func Pic(dx, dy int) [][]uint8 {
-	y := make([]uint8, dy)
+	y := make([][]uint8, dy)
+	x := make([]uint8, dx)
 
-	for i, _ := range y {
-		
+	for yCounter := range y {
+		for xCounter := range x {
+			x[xCounter] = uint8(yCounter ^ xCounter)
+		}
+		y[yCounter] = x
 	}
 
 	return y
