@@ -1,11 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+	"strconv"
+)
 
 type IPAddr [4]byte
 
-func (ip IPAddr) String() {
-	
+func (ip IPAddr) String() string {
+	ipAddress := make([]string, len(ip))
+	for index, value := range ip {
+		ipAddress[index] = strconv.Itoa(int(value))
+	}
+	return strings.Join(ipAddress, ".")
 }
 
 func main() {
